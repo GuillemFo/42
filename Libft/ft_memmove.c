@@ -6,11 +6,36 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:12:08 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/09 12:46:26 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:23:37 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_protectoverlapunder(void *dst, const void *src, size_t len)
+{
+	size_t			i;
+	unsigned char	*dst1;
+	unsigned char	*src1;
+
+	src1 = (unsigned char *)src;
+	dst1 = (unsigned char *)dst;
+	i = 0;
+	while (i < len)
+	{
+		dst1[i] = src1[i];
+		i++;
+	}
+}
+
+static void	ft_protectoverlapupper(void *dst, const void *src, size_t len)
+{
+	while (len > 0)
+	{
+		*((char *)dst + len - 1) = *((char *)src + len - 1);
+		len--;
+	}
+}
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -21,19 +46,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (dst);
 	if (src < dst)
 	{
-		while (len > 0)
-		{
-			*((char *)dst + len - 1) = *((char *)src + len - 1);
-			len--;
-		}
+		ft_protectoverlapunder(dst, src, len);
 	}
 	else
 	{
-		while (i < len)
-		{
-			*((char *)dst + i) = *((char *)src + i);
-			i++;
-		}
+		ft_protectoverlapupper(dst, src, len);
 	}
 	return (dst);
 }
