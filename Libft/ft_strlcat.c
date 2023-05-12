@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:03:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/12 16:54:55 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:02:59 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dstl = ft_strlen(dst);
 	srcl = ft_strlen(src);
 	if (dstsize == 0)
-		return (dstl);
-	while ()
-
+		return (srcl);
+/*
+	if (dstl > dstsize)
+		return (dstl - 1);
+	else
+		while (i < dstl && i < dstsize)
+		{
+			dst[dstl + i] = src[i];
+			i++;
+		}
+		return (srcl + dstl);*/
+	return (srcl + dstsize);
 }
 
 #include <stdio.h>
@@ -42,12 +51,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 int	main(void)
 {
-	char	dst[20]	= "asdfghjklzxc";
-	char	src[5]	= "hola";
-	size_t	dstsize = 20;
+	char	dst[20] 	= "esto es un";
+	char	src[5] 	 	= "hola";
+	char	dst2[20] 	= "esto es un";
+	char	src2[5] 	= "hola";
+	size_t 	dstsize	 	= 19;
 
 	printf("%lu\n", strlcat(dst, src, dstsize));
 	printf("%s\n", dst);
-	printf("%lu\n", ft_strlcat(dst, src, dstsize));
-	printf("%s\n", dst);
+	printf("%lu\n", ft_strlcat(dst2, src2, dstsize));
+	printf("%s\n", dst2);
 }
