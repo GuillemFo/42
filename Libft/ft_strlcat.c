@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:03:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/12 16:31:55 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:54:55 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ size_t	ft_strlen(const char *var)
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	
+	size_t	dstl;
+	size_t	srcl;
+	size_t	i;
+
+	i = 0;
+	dstl = ft_strlen(dst);
+	srcl = ft_strlen(src);
+	if (dstsize == 0)
+		return (dstl);
+	while ()
+
 }
 
 #include <stdio.h>
