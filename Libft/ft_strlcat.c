@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:03:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/12 18:06:13 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:17:29 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	srcl = ft_strlen(src);
 	if (dstsize == 0)
 		return (srcl);
-/*
-	if (dstl > dstsize)
-		return (dstl - 1);
-	else
-		while (i < dstl && i < dstsize)
-		{
-			dst[dstl + i] = src[i];
-			i++;
-		}
-		return (srcl + dstl);*/
-	return (srcl + dstsize);
+
+	return (srcl + dstl);
 }
 
 #include <stdio.h>
@@ -55,7 +46,7 @@ int	main(void)
 	char	src[5] 	 	= "hola";
 	char	dst2[20] 	= "esto es un";
 	char	src2[5] 	= "hola";
-	size_t 	dstsize	 	= 19;
+	size_t 	dstsize	 	= '\0';
 
 	printf("%lu\n", strlcat(dst, src, dstsize));
 	printf("%s\n", dst);
