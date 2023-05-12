@@ -20,7 +20,8 @@ SRC	=	ft_isalnum.c\
 		ft_memchr.c\
 		ft_memmove.c\
 		ft_memcmp.c\
-		ft_strlcpy.c
+		ft_strlcpy.c\
+		ft_strlcat.c
 
 OBJ = $(SRC:.c=.o)
 CFLAGS += -Wall -Wextra -Werror -I./libft.h
