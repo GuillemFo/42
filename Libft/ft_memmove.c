@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:12:08 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/11 18:23:37 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:45:34 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (dst);
 	if (src < dst)
 	{
-		ft_protectoverlapunder(dst, src, len);
+		ft_protectoverlapupper(dst, src, len);
 	}
 	else
 	{
-		ft_protectoverlapupper(dst, src, len);
+		ft_protectoverlapunder(dst, src, len);
 	}
 	return (dst);
 }
