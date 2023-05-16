@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:11:00 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/16 17:13:59 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:16:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (result * sign);
-
 }
 /*
 #include <stdlib.h>
