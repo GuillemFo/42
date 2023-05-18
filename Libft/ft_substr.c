@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:51:32 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/18 14:41:22 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/18 19:05:06 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
+	size_t	nlen;
 
+	nlen = 0;
 	i = 0;
-	substr = malloc(len + 1 * sizeof(char));
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	nlen = ft_strlen(s) - start;
+	if (nlen > len)
+		nlen = len;
+	substr = malloc(nlen + 1 * sizeof(char));
 	if (!substr)
-		return (0);
-	while (s[start] != '\0' && i < len)
+		return (NULL);
+	while (i < nlen && s[start + i] != '\0')
 	{
-		substr[i] = s[start];
-		start++;
+		substr[i] = s[start + i];
 		i++;
 	}
 	substr[i] = '\0';
 	return (substr);
 }
+
 /*
 #include <stdio.h>
 
@@ -41,4 +50,30 @@ int	main(void)
 
 	printf("%s\n", ft_substr(s, start, len));
 }
+*/
+
+
+
+
+
+/*
+	char	*ptr;
+	size_t	i;
+	
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	ptr = malloc (ft_strlen(s) - start + 1 * sizeof(char *));
+	if (!ptr)
+		return (NULL);
+	if (len > ft_strlen(s)) //recortar hasta maximo de memoria alocado.
+		len = ft_strlen(s) - start + 1;
+	while (i < len || )
+	{
+		ptr[i] = s[start + i];
+		i++;
+	}
+	ptr[i] = '\0';
 */
