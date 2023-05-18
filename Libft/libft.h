@@ -6,13 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:54:03 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/15 16:09:15 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:15:21 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
+# include <stdlib.h>
 
 int		ft_isalnum(int val);
 int		ft_isalpha(int val);
@@ -35,5 +35,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+
 
 #endif
