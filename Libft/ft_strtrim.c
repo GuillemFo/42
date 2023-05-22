@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:42:10 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/22 15:43:15 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/22 16:03:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,44 @@
 //Elimina todos los caracteres de la string ’set’ desde el principio y desde el final de ’s1’,
 //hasta encontrar un caracter no perteneciente a ’set’. La string resultante se devuelve con una reserva de malloc(3)
 
-size_t	ft_check(const char *s1, const char *set, size_t i)
+size_t	ft_check(const char *s11, const char *set, size_t i)
 {
 	size_t	j;
 
 	j = 0;
-	while (s1[i] == set[j])
+	while (s11[i] == set[j])
+	{
 		i++;
+		j++;
+	}
 	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	size_t			j;
 	char	*s2;
-	size_t	len2;
-
-	len2 = ft_strlen(s1);
-	s2 = s2[len2 +1];
+	char	*s11;
+	s2 = (char *)s1;
+	s11 = (char *)s1;
 	i = 0;
 	j = 0;
-	while(s1[i] != set[0] && s1[i] != '\0' && set[0] != '\0')
+	while(s11[i] != set[0] && s11[i] != '\0' && set[0] != '\0')
 	{
-		s2[j] = s1[i];
+		s2[j] = s11[i];
 		i++;
 		j++;
 	}
-	if (s1[i] == set[0])
-		i = ft_check(s1, set, i);
-	while(s1[i] != '\0')
+	if (s11[i] == set[0])
+		i = ft_check(s11, set, i);
+	while(s11[i] != '\0')
 	{
-		s2[j] = s1[i];
+		s2[j] = s11[i];
 		i++;
 		j++;
 	}
-	//s2[j] = '\0';
+	s2[j] = '\0';
 	return (s2);
 }
 
@@ -62,7 +64,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	char	s1[18] = "Hola buenas tardes";
+	char	s1[24] = "uno absabs z";
 	char	set[4] = "abs";
 
 	printf("%s\n", ft_strtrim(s1, set));
