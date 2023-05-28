@@ -6,21 +6,11 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:43:24 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 20:00:32 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:01:44 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-long int	ft_checksign(long int nb, long int x)
-{
-	if (nb < 0)
-		x = 1;
-	if (nb >= 0)
-		x = 1;
-	return (x);
-}
 
 unsigned char	ft_intchar(long int nb)
 {
@@ -48,17 +38,14 @@ long int	ft_countdigits(long int nb)
 char	*ft_itoa(int n)
 {
 	long int		nb;
-	long int		x;
 	char			*s;
 	long int		z;
 
 	nb = n;
-	x = 0;
-	x = ft_checksign(nb, x);
 	z = ft_countdigits(nb);
 	if (nb < 0)
 		nb = nb * -1;
-	s = malloc ((z + x) * sizeof(char));
+	s = malloc ((z + 1) * sizeof(char));
 	if (!s)
 		return (NULL);
 	s[z] = '\0';
