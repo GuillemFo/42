@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/26 18:00:37 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:20:00 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 int	ft_word(char const *s, char c, int i)
 {
-	while (s[i] != c && s[i - 1] || s[i] != c && s[i] != '\0')
+	int	j;
+
+	j = 0;
+	while (s[i] != c && s[i + 1] != c)
 	{
 		i++;
+		j++;
 	}
-	return (i);
+	return (j);
 }
 
 
@@ -55,11 +59,12 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		if (ft_word(s, c, i) != 0)
+		if (s[i] != c)
 		{
 			//s2[k] = ft_substr(s, (i - (unsigned int)ft_word(s, c, i)),
 			//		ft_word(s, c, i) + 1);
-			printf("%s\n", ft_substr(s, (i - (unsigned int)ft_word(s, c, i)), ft_word(s, c, i) + 1));
+			printf("%d\n", i);
+			printf("%s\n", ft_substr(s, i, ft_word(s, c, i) + 1));
 			k++;
 		}
 		i++;
@@ -70,7 +75,7 @@ char	**ft_split(char const *s, char c)
 
 int	main()
 {
-	ft_split("jjjjHolajjjjcomojjjestas", 'j');
+	ft_split("Holacomoestas", 'j');
 }
 
 
