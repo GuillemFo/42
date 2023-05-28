@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:43:24 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 18:35:04 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:43:21 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ char	*ft_itoa(int n)
 	nb = n;
 	x = 0;
 	num = nb;
-	x = ft_checksign(n, x);
-	z = ft_countdigits(n);
-	if (n < 0)
-		num = n * -1;
+	x = ft_checksign(nb, x);
+	z = ft_countdigits(nb);
+	if (nb < 0)
+		num = nb * -1;
 	s = malloc ((z + x) * sizeof(char));
 	if (!s)
 		return (NULL);
-	i = ft_countdigits(n);
+	i = ft_countdigits(nb);
 	s[i] = '\0';
 	i--;
 	while (z + 1 > 0)
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 		z--;
 		i--;
 	}
-	if (n < 0)
+	if (nb < 0)
 		s[0] = '-';
 	return (s);
 }
