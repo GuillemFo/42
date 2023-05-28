@@ -6,41 +6,42 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:43:24 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 16:54:40 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:35:04 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_checksign(int n, int x)
+long int	ft_checksign(long int nb, long int x)
 {
-	if (n < 0)
+	if (nb < 0)
 		x = 2;
-	if (n >= 0)
+	if (nb >= 0)
 		x = 1;
 	return (x);
 }
 
-char	ft_intchar(int n)
+unsigned char	ft_intchar(long int nb)
 {
-	char	c;
+	unsigned char	c;
 
-	c = (n % 10) + 48;
-	//printf("%d\n", n % 10);
+	c = (nb % 10) + 48;
+
 	return (c);
 }
 
-int	ft_countdigits(int n)
+long int	ft_countdigits(long int nb)
 {
-	int	i;
+	long int	i;
+
 
 	i = 0;
-	if (n == 0)
+	if (nb <= 0)
 		++i;
-	while (n != 0)
+	while (nb != 0)
 	{
-		n /= 10;
+		nb /= 10;
 		i++;
 	}
 	return (i);
@@ -48,17 +49,18 @@ int	ft_countdigits(int n)
 
 char	*ft_itoa(int n)
 {
-	int		x;
-	char	*s;
-	int		z;
-	int		i;
-	int		num;
+	long int		nb;
+	long int		x;
+	char			*s;
+	long int		z;
+	long int		i;
+	long int		num;
 
+	nb = n;
 	x = 0;
-	num = n;
+	num = nb;
 	x = ft_checksign(n, x);
 	z = ft_countdigits(n);
-	printf("%d\n", z);
 	if (n < 0)
 		num = n * -1;
 	s = malloc ((z + x) * sizeof(char));
@@ -66,7 +68,8 @@ char	*ft_itoa(int n)
 		return (NULL);
 	i = ft_countdigits(n);
 	s[i] = '\0';
-	while (z > 0)
+	i--;
+	while (z + 1 > 0)
 	{
 		s[i] = ft_intchar(num);
 		num /= 10;
@@ -78,8 +81,9 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-
+/*
 int	main(void)
 {
-	printf("%s\n", ft_itoa(1111111123));
+	printf("%s\n", ft_itoa(-));
 }
+*/
