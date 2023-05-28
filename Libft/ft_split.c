@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 11:37:38 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:23:58 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 
 
-
-
-
-
-
+	ft_word
 
 
 
