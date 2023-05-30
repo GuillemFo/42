@@ -29,7 +29,9 @@ SRC	=	ft_isalnum.c\
 		ft_substr.c\
 		ft_strjoin.c\
 		ft_strtrim.c\
-		ft_itoa.c
+		ft_itoa.c\
+		ft_putchar_fd.c\
+		ft_putstr_fd.c
 
 OBJ = $(SRC:.c=.o)
 CFLAGS += -Wall -Wextra -Werror -I./libft.h
