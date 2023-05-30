@@ -6,19 +6,12 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 19:23:58 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:27:20 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_word(char const *s, char c, int i)
-{
-
-}
-
-
 
 int	ft_counter(char const *s, char c)
 {
@@ -41,36 +34,45 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		k;
 	char	**s2;
+	int		w;
 
 	i = 0;
 	k = 0;
+
 	if (!s)
 		return (NULL);
 	s2 = malloc ((ft_counter(s, c) + 1) * (sizeof(char *)));
 	if (!s2)
 		return (NULL);
-
-
-	ft_word
-
-
-
-
-
-
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			i++;
+		if (s[i] != c)
+		{
+			w = 0;
+			while (s[i] != c)
+			{
+				w++;
+				i++;
+			}
+			s2[k] = ft_substr(s, i - w, w + 1);
+			k++;
+		}
+	}
 	s2[k] = NULL;
 	return (s2);
 }
 
 int	main()
-{	
+{
 	int	i;
 	char	**a;
 	i = 0;
 	a = ft_split("jjjHolajjjcomojjjestas", 'j');
 	while(a[i])
 	{
-		printf("%p\n", a[i]);
+		printf("%s\n", a[i]);
 		i++;
 	}
 }
