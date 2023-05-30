@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/30 16:32:09 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:40:27 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,29 @@ char	**ft_split(char const *s, char c)
 	s2[k] = NULL;
 	return (s2);
 }
-/*
+
 int	main()
 {
 	int	i;
 	char	**a;
+	char	**b;
+
 	i = 0;
 	a = ft_split("split  ||this|for|me|||||!|", '|');
+	b = ft_split("xxxxxxxxhello!", 'x');
 	while(a[i])
 	{
 		printf("%s\n", a[i]);
 		i++;
 	}
+	i = 0;
+	while(b[i])
+	{
+		printf("%s\n", b[i]);
+		i++;
+	}
 }
-*/
+
 
 /*
 int	main()
