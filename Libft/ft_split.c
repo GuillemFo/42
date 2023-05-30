@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/30 16:17:44 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:32:09 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_counter(char const *s, char c)
 	j = 0;
 	while (s[i] != '\0')
 	{
-		if ((i == 0 || s[i - 1] == c) && s[i] != c)
+		if ((i == 0 && s[i] != c) || (s[i - 1] == c && s[i] != c))
 			j++;
 		i++;
 	}
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] == c)
 			i++;
-		if (s[i] != c)
+		if (s[i] != c && s[i] != '\0')
 		{
 			w = 0;
 			while (s[i] != c && s[i] != '\0')
@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	s2[k] = NULL;
 	return (s2);
 }
-
+/*
 int	main()
 {
 	int	i;
@@ -80,7 +80,7 @@ int	main()
 		i++;
 	}
 }
-
+*/
 
 /*
 int	main()
