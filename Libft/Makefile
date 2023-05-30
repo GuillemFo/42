@@ -32,7 +32,9 @@ SRC	=	ft_isalnum.c\
 		ft_itoa.c\
 		ft_putchar_fd.c\
 		ft_putstr_fd.c\
-		ft_putendl_fd.c
+		ft_putendl_fd.c\
+		ft_putnbr_fd.c\
+		ft_striteri.c
 
 OBJ = $(SRC:.c=.o)
 CFLAGS += -Wall -Wextra -Werror -I./libft.h
