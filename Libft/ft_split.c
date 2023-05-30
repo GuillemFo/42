@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/30 14:27:20 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:17:44 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,16 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	k = 0;
-
 	if (!s)
 		return (NULL);
 	s2 = malloc ((ft_counter(s, c) + 1) * (sizeof(char *)));
 	if (!s2)
 		return (NULL);
+	if (s[0] == '\0')
+	{
+		s2[k] = ft_strdup("");
+		k++;
+	}
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
@@ -51,12 +55,12 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			w = 0;
-			while (s[i] != c)
+			while (s[i] != c && s[i] != '\0')
 			{
 				w++;
 				i++;
 			}
-			s2[k] = ft_substr(s, i - w, w + 1);
+			s2[k] = ft_substr(s, i - w, w);
 			k++;
 		}
 	}
@@ -69,7 +73,7 @@ int	main()
 	int	i;
 	char	**a;
 	i = 0;
-	a = ft_split("jjjHolajjjcomojjjestas", 'j');
+	a = ft_split("split  ||this|for|me|||||!|", '|');
 	while(a[i])
 	{
 		printf("%s\n", a[i]);
