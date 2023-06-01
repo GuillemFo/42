@@ -6,12 +6,23 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/30 16:40:27 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:00:30 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+
+void	ft_freemalloc(char **s2, int k)
+{
+	while (k > 0)
+	{
+		free(s2[k]);
+		k--;
+	}
+	free(s2);
+}
+
 
 int	ft_counter(char const *s, char c)
 {
@@ -38,15 +49,13 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	if (!s)
-		return (NULL);
 	s2 = malloc ((ft_counter(s, c) + 1) * (sizeof(char *)));
 	if (!s2)
 		return (NULL);
 	if (s[0] == '\0')
 	{
-		s2[k] = ft_strdup("");
-		k++;
+		s2[k] = NULL;
+		return (s2);
 	}
 	while (s[i] != '\0')
 	{
@@ -61,13 +70,18 @@ char	**ft_split(char const *s, char c)
 				i++;
 			}
 			s2[k] = ft_substr(s, i - w, w);
+			if (s2[k] == NULL)
+			{		
+				ft_freemalloc(s2, k);
+				return (NULL);
+			}
 			k++;
 		}
 	}
 	s2[k] = NULL;
 	return (s2);
 }
-
+/*
 int	main()
 {
 	int	i;
@@ -89,7 +103,7 @@ int	main()
 		i++;
 	}
 }
-
+*/
 
 /*
 int	main()
