@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/01 19:00:30 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:22:04 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_freemalloc(char **s2, int k)
 {
-	while (k > 0)
+	while (k - 1 > 0)
 	{
 		free(s2[k]);
 		k--;
@@ -26,42 +26,40 @@ void	ft_freemalloc(char **s2, int k)
 
 int	ft_counter(char const *s, char c)
 {
-	int	i;
-	int	j;
+	int	count;
 
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	if (!*s)
+		return (0);
+	count = 0;
+	while (*s)
 	{
-		if ((i == 0 && s[i] != c) || (s[i - 1] == c && s[i] != c))
-			j++;
-		i++;
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+			s++;
 	}
-	return (j);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
 	int		k;
 	char	**s2;
+	int		i;
 	int		w;
 
 	i = 0;
 	k = 0;
-	s2 = malloc ((ft_counter(s, c) + 1) * (sizeof(char *)));
-	if (!s2)
+	s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
+	if (!s2 || !s)
 		return (NULL);
-	if (s[0] == '\0')
-	{
-		s2[k] = NULL;
-		return (s2);
-	}
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		while (s[i] == c && s[i] != '\0')
 			i++;
-		if (s[i] != c && s[i] != '\0')
+		if (s[i] != '\0')
 		{
 			w = 0;
 			while (s[i] != c && s[i] != '\0')
@@ -71,7 +69,7 @@ char	**ft_split(char const *s, char c)
 			}
 			s2[k] = ft_substr(s, i - w, w);
 			if (s2[k] == NULL)
-			{		
+			{
 				ft_freemalloc(s2, k);
 				return (NULL);
 			}
@@ -82,28 +80,53 @@ char	**ft_split(char const *s, char c)
 	return (s2);
 }
 /*
+int	main(void)
+{
+	char *str = "xxxxxxxxhello!";
+	ft_split(str, 'x');
+}
+*/
+/*
 int	main()
 {
 	int	i;
 	char	**a;
 	char	**b;
+	char	**c;
+	char	**d;
 
 	i = 0;
 	a = ft_split("split  ||this|for|me|||||!|", '|');
 	b = ft_split("xxxxxxxxhello!", 'x');
-	while(a[i])
+	c = ft_split("  tripouille  42  ", ' ');
+	d = ft_split("chinimala", ' ');
+	while (a[i])
 	{
 		printf("%s\n", a[i]);
 		i++;
 	}
 	i = 0;
-	while(b[i])
+	while (b[i])
 	{
 		printf("%s\n", b[i]);
 		i++;
 	}
+	i = 0;
+	while (c[i])
+	{
+		printf("%s\n", c[i]);
+		i++;
+	}
+	i = 0;
+	while (d[i])
+	{
+		printf("%s\n", d[i]);
+		i++;
+	}
 }
 */
+
+
 
 /*
 int	main()
