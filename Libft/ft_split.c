@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/01 22:22:04 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:44:56 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,8 @@ void	ft_freemalloc(char **s2, int k)
 int	ft_counter(char const *s, char c)
 {
 	int	count;
+	int	i;
 
-	if (!*s)
-		return (0);
-	count = 0;
-	while (*s)
-	{
-		while (*s == c)
-			s++;
-		if (*s)
-			count++;
-		while (*s != c && *s)
-			s++;
-	}
 	return (count);
 }
 
