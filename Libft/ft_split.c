@@ -6,23 +6,23 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/01 23:59:21 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 00:48:07 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+
 void	ft_freemalloc(char **s2, int k)
 {
-	while (k - 1 > 0)
+	while (k >= 0)
 	{
 		free(s2[k]);
 		k--;
 	}
 	free(s2);
 }
-
 
 int	ft_counter(const char *s, char c)
 {
@@ -36,9 +36,7 @@ int	ft_counter(const char *s, char c)
 	if (s[0] == '\0')
 		return (1);
 	if (s[0] != c && s[0] != '\0')
-	{
-			count++;
-	}
+		count++;
 	i++;
 	while (s[i] != '\0')
 	{
@@ -62,7 +60,10 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
+	if (s[0] == '\0')
+		s2 = malloc(sizeof(char *));
+	else
+		s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
 	if (!s2 || !s)
 		return (NULL);
 	while (s[i] != '\0')
