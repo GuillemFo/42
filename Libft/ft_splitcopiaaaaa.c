@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/02 00:18:29 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 00:49:49 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ char	**ft_split(char const *s, char c)
 	int		w;
 
 	i = 0;
-	k = 0;			//falla el malloc if (s[0] == '\0'), se suma el +1 y da 16 en vez de 8
-	s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
+	k = 0;
+	if (s[0] == '\0')
+		s2 = malloc(sizeof(char *));
+	else
+		s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
 	if (!s2 || !s)
 		return (NULL);
 	while (s[i] != '\0')
