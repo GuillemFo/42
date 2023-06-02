@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/02 00:48:07 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:18:26 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 
-void	ft_freemalloc(char **s2, int k)
+static void	*ft_freemalloc(char **s2, int k)
 {
 	while (k >= 0)
 	{
@@ -22,6 +22,7 @@ void	ft_freemalloc(char **s2, int k)
 		k--;
 	}
 	free(s2);
+	return (NULL);
 }
 
 int	ft_counter(const char *s, char c)
@@ -80,10 +81,8 @@ char	**ft_split(char const *s, char c)
 			}
 			s2[k] = ft_substr(s, i - w, w);
 			if (s2[k] == NULL)
-			{
-				ft_freemalloc(s2, k);
-				return (NULL);
-			}
+				return (ft_freemalloc(s2, k));
+
 			k++;
 		}
 	}
