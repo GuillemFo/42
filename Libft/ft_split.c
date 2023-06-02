@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/02 13:19:29 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:27:12 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,13 @@ int	ft_counter(const char *s, char c)
 	return (count);
 }
 
-
-char	**ft_split(char const *s, char c)
+char	**ft_aux(char const *s, char **s2, char c, int k)
 {
-	int		k;
-	char	**s2;
-	int		i;
-	int		w;
+	int	i;
+	int	w;
 
 	i = 0;
-	k = 0;
-	if (s[0] == '\0')
-		s2 = malloc(sizeof(char *));
-	else
-		s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
-	if (!s2 || !s)
-		return (NULL);
+	w = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
@@ -86,6 +77,22 @@ char	**ft_split(char const *s, char c)
 		}
 	}
 	s2[k] = NULL;
+	return (s2);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		k;
+	char	**s2;
+
+	k = 0;
+	if (s[0] == '\0')
+		s2 = malloc(sizeof(char *));
+	else
+		s2 = malloc((ft_counter(s, c) + 1) * (sizeof(char *)));
+	if (!s2 || !s)
+		return (NULL);
+	s2 = ft_aux(s, s2, c, k);
 	return (s2);
 }
 /*
