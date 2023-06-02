@@ -38,8 +38,8 @@ SRC	=	ft_isalnum.c\
 		ft_split.c\
 		ft_strmapi.c
 
-BONUS = ft_bonus.c\
-		ft_bonus2.c
+BONUS = ft_lstnew_bonus.c \
+		ft_lstsize_bonus.c
 
 OBJ = $(SRC:.c=.o)
 
