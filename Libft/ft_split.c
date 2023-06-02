@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/02 13:18:26 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:19:29 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ char	**ft_split(char const *s, char c)
 			s2[k] = ft_substr(s, i - w, w);
 			if (s2[k] == NULL)
 				return (ft_freemalloc(s2, k));
-
 			k++;
 		}
 	}
