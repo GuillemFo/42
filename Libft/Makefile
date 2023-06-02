@@ -38,18 +38,31 @@ SRC	=	ft_isalnum.c\
 		ft_split.c\
 		ft_strmapi.c
 
+BONUS = ft_bonus.c\
+		ft_bonus2.c
+
 OBJ = $(SRC:.c=.o)
+
+BON = $(BONUS:.c=.o)
+
 CFLAGS += -Wall -Wextra -Werror -I./libft.h
-$(NAME): $(OBJ) libft.h
-	ar -crs $(NAME) $(OBJ) 
 all: $(NAME)
+
+$(NAME): $(OBJ) libft.h
+	ar -crs $(NAME) $(OBJ)
+
+bonus: .bonus
+
+.bonus: $(OBJ) $(BON) libft.h
+	ar -crs $(NAME) $(OBJ) $(BON)
+	@touch .bonus
 
 re: fclean all
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(BON) .bonus
 
 fclean: clean
 	rm -rf $(NAME)
 
-.PHONY: add re clean fclean
+.PHONY: add re clean fclean bonus
