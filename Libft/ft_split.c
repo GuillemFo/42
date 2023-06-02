@@ -6,13 +6,12 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:28:30 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/02 13:27:12 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/02 15:32:30 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
 
 static void	*ft_freemalloc(char **s2, int k)
 {
@@ -141,8 +140,6 @@ int	main()
 	}
 }
 */
-
-
 
 /*
 int	main()
