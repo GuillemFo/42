@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 16:39:40 by codespace         #+#    #+#             */
-/*   Updated: 2023/06/06 16:27:52 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/06/06 15:23:26 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/06/06 16:33:02 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst)
 	{
-		while (lst->next)
+		while (lst)
+		{
+			(f)(lst->content);
 			lst = lst->next;
+		}
 	}
-	return (lst);
 }
