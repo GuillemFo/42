@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*    ft_lstadd_front_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 16:39:40 by codespace         #+#    #+#             */
-/*   Updated: 2023/06/06 12:22:49 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/06/02 18:55:13 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/06/06 12:05:49 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
-	}
-	return (lst);
+	new->next = *lst;
+	*lst = new;
 }
