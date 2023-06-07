@@ -64,6 +64,9 @@ bonus: .bonus
 	ar -crs $(NAME) $(OBJ) $(BON)
 	@touch .bonus
 
+%.o: %.c libft.h Makefile
+	cc $(CFLAGS) -c $< -o $@ 
+
 re: fclean all
 
 clean:
