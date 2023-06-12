@@ -52,7 +52,7 @@ OBJ = $(SRC:.c=.o)
 
 BON = $(BONUS:.c=.o)
 
-CFLAGS += -Wall -Wextra -Werror -I./libft.h
+CFLAGS = -Wall -Wextra -Werror -I./libft.h
 all: $(NAME)
 
 $(NAME): $(OBJ) libft.h
@@ -75,4 +75,4 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-.PHONY: add re clean fclean bonus
+.PHONY: all re clean fclean bonus
