@@ -8,7 +8,7 @@ OBJ = $(SRC::.c=.o)
 CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
-%.o: %.c #replace with .h# Makefile
+%.o: %.c ft_printf.h Makefile
 	cc $(CFLAGS) -c $< -o $@
 
 re: fclean all

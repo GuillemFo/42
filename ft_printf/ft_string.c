@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 15:21:15 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/13 15:49:52 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/06/13 19:15:27 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/06/13 19:20:09 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_string(char *s);
-int	ft_c(int s);
+int	ft_string(char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		if (write (1, &s[i], 1) == -1)
+			return (-1);
+	return (i);
+}
+
+int	ft_c(int s)
+{
+	if (write(1, &s, 1) == -1)
+		return (-1);
+	return (1);
+}
