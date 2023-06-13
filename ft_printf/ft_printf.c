@@ -6,13 +6,31 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:12:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/13 17:01:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/13 17:50:25 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *s, ...)
+{
+	int		i;
+	int		count;
+	va_list	args;
+
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == %)
+		{
+			
+		}
+		ft_putcharp(s, args);
+
+	}
+
+}
 
 
 
