@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.cc                                     :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:41:15 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/14 13:53:45 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:28:45 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_hex(unsigned int s)
 {
 	static char	base[16] = "0123456789abcdef";
 	int			i;
+	int			test;
 
+	test = 0;
 	i = 0;
 	if (s >= 16)
 	{
-		i += ft_hex (s / 16);
-		i += ft_hex (s % 16);
+		test = ft_hex (s / 16);
+		if (test == -1)
+			return (-1);
+		i += test;
+		test = ft_hex (s % 16);
+		if (test == -1)
+			return (-1);
+		i += test;
 	}
 	else
-		i += ft_char(base[s]);
+	{
+		test = ft_char(base[s]);
+		if (test == -1)
+			return (-1);
+		i += test;
+	}
 	return (i);
 }
 

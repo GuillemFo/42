@@ -5,9 +5,9 @@ SRC =	ft_printf.c \
 		ft_printstring.c \
 		ft_printhex.c 
 
-OBJ = $(SRC::.c=.o)
+OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I./ft_printf.h
 
 all: $(NAME)
 
