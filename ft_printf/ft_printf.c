@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:12:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/14 09:28:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:53:18 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,25 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			if (str[i +1] == '%')
-				test += ft_c('%');
-			// (str[i +1] == i || d)
+				test += ft_char ('%');
+			else if (str[i +1] == 'i' || str[i +1] == 'd')
+				test += ft_putn (va_arg (argv, int));
 			else if (str[i +1] == 'c')
-				test += ft_c (va_arg (argv, int));
+				test += ft_char (va_arg (argv, int));
 			else if (str[i +1] == 's')
 				test += ft_string (va_arg (argv, char *));
-			//else (s[i +1] == u)
-			//else (s[i +1] == p)
-			//else (s[i +1] == x)
-			//else (s[i +1] == X)
+			else if (str[i +1] == 'u')
+				test += ft_u (va_arg (argv, unsigned int));
+			else if (str[i +1] == 'x')
+				test += ft_hex(va_arg (argv, unsigned int));
+			else if (str[i +1] == 'X')
+				test += ft_hexcap(va_arg (argv, unsigned int));
+			else if (str[i +1] == 'p')
+				
 			i++;
 		}
 		else
-			test += ft_c(str[i]);
+			test += ft_char (str[i]);
 		i++;
 	}	
 	va_end(argv);
@@ -51,10 +56,11 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	printf("%c", 'h');
-	printf("%s\n", "");
-	ft_printf("%c", 'h');
+	int i = 0;
 
+	printf("%p", &i);
+	printf("\n");
+	ft_printf("%p", &i);
 }
 
 /*
