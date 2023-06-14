@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:12:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/14 14:22:05 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:22:25 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_checkprint(va_list argv, char str)
 	if (str == '%')
 		test = ft_char ('%');
 	else if (str == 'i' || str == 'd')
-		test = ft_putn (va_arg (argv, int));
+		test = ft_putn (va_arg (argv, long));
 	else if (str == 'c')
 		test = ft_char (va_arg (argv, int));
 	else if (str == 's')
@@ -54,18 +54,13 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			test = ft_checkprint(argv, str[i +1]);
-			if (test == -1)
-				return (-1);
-			count += test;
 			i++;
 		}
 		else
-		{
 			test = ft_char (str[i]);
-			if (test == -1)
-				return (-1);
-			count += test;
-		}	
+		if (test == -1)
+			return (-1);
+		count += test;
 		i++;
 	}	
 	va_end(argv);

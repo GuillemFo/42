@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.cc                                     :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:33:58 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/14 13:54:43 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:36:07 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ int	ft_putn(int s)
 	int	i;
 
 	i = 0;
-	if (s == -2147483648)
-	{
-		if (ft_string("-2") != -1)
-			i += 2;
-		s = 147483648;
-	}
 	if (s < 0)
 	{
 		i += ft_char('-');
@@ -41,14 +35,27 @@ int	ft_putn(int s)
 int	ft_u(unsigned int s)
 {
 	int	i;
+	int	test;
 
+	test = 0;
 	i = 0;
 	if (s >= 10)
 	{
-		i += ft_u (s / 10);
-		i += ft_u (s % 10);
+		test = ft_u (s / 10);
+		if (test == -1)
+			return (-1);
+		i += test;
+		test = ft_u (s % 10);
+		if (test == -1)
+			return (-1);
+		i += test;
 	}
 	else
-		i += ft_char(s + 48);
+	{
+		test = ft_char(s + 48);
+		if (test == -1)
+			return (-1);
+		i += test;
+	}
 	return (i);
 }
