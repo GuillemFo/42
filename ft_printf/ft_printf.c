@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:12:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/13 20:19:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 09:28:02 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	ft_printf(const char *str, ...)
 	va_list	argv;
 
 	test = 0;
-	i = -1;	//					porque ha de ser -1????
+	i = 0;
 	count = 0;
 	va_start(argv, str);
-	while (str[++i] != '\0') // porque ha de arrancar en ++i??
+	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
@@ -42,7 +42,8 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 			test += ft_c(str[i]);
-	}
+		i++;
+	}	
 	va_end(argv);
 	return (test);
 }
@@ -52,7 +53,7 @@ int	main(void)
 {
 	printf("%c", 'h');
 	printf("%s\n", "");
-	ft_printf("%%", '%');
+	ft_printf("%c", 'h');
 
 }
 
