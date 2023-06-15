@@ -14,14 +14,15 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-int	ft_printf(const char *str, ...);
-int	ft_string(char *s);
-int	ft_char(int s);
-int	ft_putn(int s);
-int	ft_u(unsigned int s);
-int	ft_hex(unsigned int s);
-int	ft_hexcap(unsigned int s);
-int	ft_ptr(unsigned long s);
+int		ft_printf(const char *str, ...);
+int		ft_string(char *s);
+int		ft_char(int s);
+int		ft_u(unsigned int s);
+int		ft_hex(unsigned int s);
+int		ft_hexcap(unsigned int s);
+int		ft_ptr(unsigned long s);
+int		ft_itoaprint(int n);
 
 #endif
