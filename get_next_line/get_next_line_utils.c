@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 17:36:15 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/16 18:06:31 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/06/16 12:10:04 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/06/16 15:53:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-char	*get_next_line(int fd);
-
-#endif
+		ft_nextline(&tmp *buff, )
+	while (buff[i] != '\n')
+	{
+		tmp[i] = buff[i];
+		i++;
+	}
+	
