@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:36:15 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 13:36:45 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:39:32 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,5 @@ char		*get_next_line(int fd);
 int			ft_strchr(char *var, int c);
 size_t		ft_strlen(char *var);
 char		*ft_strjoin(char *s1, char *s2);
-char		*ft_strdup(char *s1);
-char		*ft_create_line(char *tmp);
-static char	*ft_readline(char *tmp, int fd);
 
 #endif

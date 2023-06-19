@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:33:49 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 13:35:36 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:38:13 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ static char	*ft_readline(char *tmp, int fd)
 
 char	*get_next_line(int fd)
 {
-	int				i;
 	static char		*tmp;
 	char			*newstr;
 
