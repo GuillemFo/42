@@ -6,16 +6,84 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:10:04 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/16 15:53:23 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:56:35 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-		ft_nextline(&tmp *buff, )
-	while (buff[i] != '\n')
+size_t	ft_strlen(const char *var)
+{
+	size_t	count;
+
+	count = 0;
+	if (!var)
+		return (0);
+	while (var[count] != '\0')
+		count++;
+	return (count);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	s1l;
+	char	*str;
+	int		i;
+
+	i = 0;
+	s1l = ft_strlen(s1);
+	str = malloc (s1l + 1 * sizeof(char));
+	if (!str)
+		return (0);
+	while (s1[i] != '\0')
 	{
-		tmp[i] = buff[i];
+		str[i] = s1[i];
 		i++;
 	}
-	
+	str[i] = '\0';
+	return (str);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*newstr;
+	int		i;
+	int		j;
+
+	if (!s1)
+		return (ft_strdup(s2));
+	newstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1 * sizeof(char));
+	if (!newstr)
+		return (0);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		newstr[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		newstr[i + j] = s2[j];
+		j++;
+	}
+	newstr[i + j] = '\0';
+	free (s1);
+	return (newstr);
+}
+
+int	ft_strchr(const char *var, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!var)
+		return (0);
+	while (var[i] != '\0' && var[i] != (char) c)
+		i++;
+	if (var[i] != (char) c)
+		return (0);
+	if ((char) c == '\0')
+		return (1);
+	return (1);
+}

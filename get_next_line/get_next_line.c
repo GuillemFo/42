@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:33:49 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 09:42:09 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:54:46 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,56 +16,68 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *var)
+char	*ft_create_line(char *tmp)
 {
-	size_t	count;
-
-	count = 0;
-	while (var[count] != '\0')
-		count++;
-	return (count);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	size_t	s1l;
-	char	*str;
+	char	*newstr;
 	int		i;
 
 	i = 0;
-	s1l = ft_strlen(s1);
-	str = malloc (s1l + 1 * sizeof(char));
-	if (!str)
-		return (0);
-	while (s1[i] != '\0')
+	while (tmp[i] != '\n' && tmp[i] != '\0')
+		i++;
+	newstr = malloc (i + 1 * sizeof(char));
+	i = 0;
+	while (tmp[i] != '\n' && tmp[i] != '\0')
 	{
-		str[i] = s1[i];
+		newstr[i] = tmp[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	if (tmp[i] == '\n')
+	{
+		newstr[i] = '\n';
+		newstr[i + 1] = '\0';
+	}
+	else
+		newstr[i] = '\0';
+	return (newstr);
 }
 
+static char	*ft_readline(char *tmp, int fd)
+{	
+	int		rdbytes;
+	char	buff[BUFFER_SIZE + 1];
+
+	rdbytes = 1;
+	while (rdbytes > 0 && ft_strchar(tmp, '\n') == 0)
+	{
+		rdbytes = read (fd, buff, BUFFER_SIZE);
+		if (rdbytes == -1)
+		{
+			free(tmp);
+			return (0);
+		}
+		buff[rdbytes] = '\0';
+		tmp = ft_strjoin(tmp, buff);
+		if (!tmp)
+			return (0);
+	}
+	return (tmp);
+}
 
 char	*get_next_line(int fd)
 {
-	static char		tmp[BUFFER_SIZE];
-	static int		i = 0;
-	int				j;
-	char			buff[BUFFER_SIZE];
+	int				i;
+	static char		*tmp;
 	char			*newstr;
 
-	j = 0;
-	read(fd, tmp, BUFFER_SIZE);
-	while (tmp[i] != '\n' && tmp[i] != '\0' && i < BUFFER_SIZE)
+	tmp = ft_readline(tmp, fd);
+	if (!tmp)
+		return (0);
+	newstr = ft_create_line(tmp);
+	if (!newstr)
 	{
-		buff[j] = tmp[i];
-		i++;
-		j++;
+		free (tmp);
+		return (0);
 	}
-	buff[j] = tmp[i];
-	buff[j +1] = '\0';
-	newstr = ft_strdup(buff);
 	return (newstr);
 }
 
