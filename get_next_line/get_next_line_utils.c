@@ -6,13 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:10:04 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 12:56:35 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:33:48 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *var)
+size_t	ft_strlen(char *var)
 {
 	size_t	count;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *var)
 	return (count);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *s1)
 {
 	size_t	s1l;
 	char	*str;
@@ -44,7 +44,7 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*newstr;
 	int		i;
@@ -72,7 +72,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (newstr);
 }
 
-int	ft_strchr(const char *var, int c)
+int	ft_strchr(char *var, int c)
 {
 	int	i;
 

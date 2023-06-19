@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:33:49 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 12:54:46 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:32:00 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,30 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+
+char	*ft_left_tmp(char *tmp, char *newline)
+{
+	char	*newtmp;
+	int		i;
+	int		j;
+
+	newtmp = malloc (ft_strlen(tmp) - ft_strlen(newline) * sizeof(char));
+	if (!newtmp)
+	{
+		free (tmp);
+		return (0);
+	}
+	i = ft_strlen(newline);
+	j = 0;
+	while (tmp[i] != '\0')
+	{
+		newtmp[j] = tmp[i];
+		i++;
+		j++;
+	}
+	free (tmp);
+	return (newtmp);
+}
 
 char	*ft_create_line(char *tmp)
 {
@@ -47,7 +71,7 @@ static char	*ft_readline(char *tmp, int fd)
 	char	buff[BUFFER_SIZE + 1];
 
 	rdbytes = 1;
-	while (rdbytes > 0 && ft_strchar(tmp, '\n') == 0)
+	while (rdbytes > 0 && ft_strchr(tmp, '\n') == 0)
 	{
 		rdbytes = read (fd, buff, BUFFER_SIZE);
 		if (rdbytes == -1)
@@ -78,6 +102,7 @@ char	*get_next_line(int fd)
 		free (tmp);
 		return (0);
 	}
+	tmp = ft_left_tmp(tmp, newstr);
 	return (newstr);
 }
 
