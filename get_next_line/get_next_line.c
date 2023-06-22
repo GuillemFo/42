@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:33:49 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/19 13:38:13 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:50:44 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ char	*ft_left_tmp(char *tmp, char *newline)
 	int		i;
 	int		j;
 
-	newtmp = malloc (ft_strlen(tmp) - ft_strlen(newline) * sizeof(char));
+	if (ft_strlen(tmp) - ft_strlen(newline) == 0)
+	{	
+		free (tmp);
+		return (NULL);
+	}
+	newtmp = malloc ((ft_strlen(tmp) - ft_strlen(newline) +1) * sizeof(char));
 	if (!newtmp)
 	{
 		free (tmp);
@@ -30,12 +35,13 @@ char	*ft_left_tmp(char *tmp, char *newline)
 	}
 	i = ft_strlen(newline);
 	j = 0;
-	while (tmp[i] != '\0')
+	while (tmp[i] != '\n' && tmp[i] != '\0')
 	{
 		newtmp[j] = tmp[i];
 		i++;
 		j++;
 	}
+	newtmp[j] = '\0';
 	free (tmp);
 	return (newtmp);
 }
@@ -45,6 +51,8 @@ char	*ft_create_line(char *tmp)
 	char	*newstr;
 	int		i;
 
+	if (!tmp)
+		return (NULL);
 	i = 0;
 	while (tmp[i] != '\n' && tmp[i] != '\0')
 		i++;
@@ -79,10 +87,13 @@ static char	*ft_readline(char *tmp, int fd)
 			free(tmp);
 			return (0);
 		}
-		buff[rdbytes] = '\0';
-		tmp = ft_strjoin(tmp, buff);
-		if (!tmp)
-			return (0);
+		else if (rdbytes > 0)
+		{	
+			buff[rdbytes] = '\0';
+			tmp = ft_strjoin(tmp, buff);
+			if (!tmp)
+				return (0);
+		}
 	}
 	return (tmp);
 }
@@ -101,10 +112,9 @@ char	*get_next_line(int fd)
 		free (tmp);
 		return (0);
 	}
-	tmp = ft_left_tmp(tmp, newstr);
+	tmp = ft_left_tmp(tmp, newstr); ///// error aqui
 	return (newstr);
 }
-
 /*
 int	main(void)
 {
@@ -113,12 +123,14 @@ int	main(void)
 	char	*path;
 
 	m = 0;
-	path = "/Users/gforns-s/Desktop/GITHUB/get_next_line/test.txt";
+	path = "test.txt";
 	fd = open(path, O_RDONLY);
-	while (m < 20)
+	char *linea = get_next_line(fd);
+	while (linea)
 	{
-		printf("%s", get_next_line(fd));
-		m++;
+		printf("%s", linea);
+		free(linea);
+		linea = get_next_line(fd);
 	}
 }
 */
