@@ -27,9 +27,9 @@ char	*ft_str_capitalizer(char *str)
 	return (tmp);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
