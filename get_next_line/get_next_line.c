@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:33:49 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/22 16:50:44 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:36:51 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+
+// check if ther is something, copy til u find /n and read bytes have something. concatenate with strjoin so you are able to carry on if less data is loaded in the buffer size mening size 3 but \n is at 5 character of string. clear buffer, then save from \n to extra grabbed data so next time u grab u get the missing data not printed before.
+// STOP CHECKING '\0' FILES MIGHT NOT FINISH WITH IT, SET A READ VALUE LIKE rdbytes AND CHECK WHAT RETURNS.
+// CHECK WITH IF ALL VARIABLES< IMPUT DATA AND LINES THAT ARE GIVEN, CREATED AND RETURNED.
+// WORK 🙃
 char	*ft_left_tmp(char *tmp, char *newline)
 {
 	char	*newtmp;
