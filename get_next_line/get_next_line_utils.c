@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:10:04 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/22 16:16:00 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:07:36 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (ft_strdup(s2));
 	newstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1 * sizeof(char));
 	if (!newstr)
+	{
+		free(s1);
 		return (0);
+	}
 	i = 0;
 	while (s1[i] != '\0')
 	{
@@ -68,7 +71,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	newstr[i + j] = '\0';
-	free (s1);
+	if (s1)
+		free (s1);
 	return (newstr);
 }
 
@@ -83,7 +87,5 @@ int	ft_strchr(char *var, int c)
 		i++;
 	if (var[i] != (char) c)
 		return (0);
-	if ((char) c == '\0')
-		return (1);
 	return (1);
 }
