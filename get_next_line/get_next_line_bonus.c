@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 13:50:07 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/28 13:59:16 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:05:04 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,20 +110,22 @@ static char	*ft_readline(char *tmp, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*tmp = NULL;
+	static char	*tmp[4096];
 	char		*line;
 
-	tmp = ft_readline(tmp, fd);
-	if (!tmp)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	line = ft_create_line(tmp);
+	tmp[fd] = ft_readline(tmp[fd], fd);
+	if (!tmp[fd])
+		return (0);
+	line = ft_create_line(tmp[fd]);
 	if (!line)
 	{
-		free (tmp);
-		tmp = NULL;
+		free (tmp[fd]);
+		tmp[fd] = NULL;
 	}
 	else
-		tmp = ft_left_tmp(tmp, line);
+		tmp[fd] = ft_left_tmp(tmp[fd], line);
 	return (line);
 }
 
