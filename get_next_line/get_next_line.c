@@ -13,6 +13,8 @@ char	*ft_left_tmp(char *tmp, char *line)
 	int		i;
 	int		j;
 
+	if (!line)
+		return (0);
 	if (ft_strlen(tmp) - ft_strlen(line) == 0)
 	{
 		free (tmp);
@@ -42,8 +44,8 @@ char	*ft_create_line(char *tmp)
 	char	*line;
 	int		i;
 
-	// if (!tmp)
-	// 	return (NULL); not necessary
+	if (!tmp)
+		return (0);
 	i = 0;
 	while (tmp[i] != '\n' && tmp[i] != '\0')
 		i++;
@@ -52,7 +54,11 @@ char	*ft_create_line(char *tmp)
 	else
 		line = malloc ((i + 1) * sizeof(char));
 	if (!line)
+	{
+		free (tmp);
+		tmp = NULL;
 		return (0);
+	}
 	i = 0;
 	while (tmp[i] != '\n' && tmp[i] != '\0')
 	{
@@ -75,8 +81,8 @@ static char	*ft_readline(char *tmp, int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 	{
-		// if (tmp)
-		// 	free(tmp); not necessary
+		if (tmp)
+			free(tmp);
 		return (0);
 	}
 	while (rdbytes > 0 && ft_strchr(tmp, '\n') == 0)
@@ -92,6 +98,8 @@ static char	*ft_readline(char *tmp, int fd)
 		{
 			buff[rdbytes] = '\0';
 			tmp = ft_strjoin(tmp, buff);
+			if (!tmp)
+				return (0);
 		}
 	}
 	free (buff);
@@ -101,7 +109,7 @@ static char	*ft_readline(char *tmp, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*tmp;
+	static char	*tmp = NULL;
 	char		*line;
 
 	tmp = ft_readline(tmp, fd);
@@ -109,12 +117,8 @@ char	*get_next_line(int fd)
 		return (0);
 	line = ft_create_line(tmp);
 	if (!line)
-	{
-		free (tmp);
 		return (0);
-	}
 	tmp = ft_left_tmp(tmp, line);
-	// if (!tmp)
 	return (line);
 }
 
