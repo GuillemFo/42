@@ -21,7 +21,7 @@ char	*ft_left_tmp(char *tmp, char *line)
 	newtmp = malloc (((ft_strlen(tmp) - ft_strlen(line)) + 1) * sizeof(char));
 	if (!newtmp)
 	{
-		free (tmp);
+		//free (tmp);
 		return (0);
 	}
 	i = ft_strlen(line);
@@ -42,8 +42,8 @@ char	*ft_create_line(char *tmp)
 	char	*line;
 	int		i;
 
-	if (!tmp[0])
-		return (NULL);
+	// if (!tmp)
+	// 	return (NULL); not necessary
 	i = 0;
 	while (tmp[i] != '\n' && tmp[i] != '\0')
 		i++;
@@ -75,8 +75,8 @@ static char	*ft_readline(char *tmp, int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 	{
-		if (tmp)
-			free(tmp);
+		// if (tmp)
+		// 	free(tmp); not necessary
 		return (0);
 	}
 	while (rdbytes > 0 && ft_strchr(tmp, '\n') == 0)
@@ -92,11 +92,6 @@ static char	*ft_readline(char *tmp, int fd)
 		{
 			buff[rdbytes] = '\0';
 			tmp = ft_strjoin(tmp, buff);
-			if (!tmp)
-			{
-				free (buff);
-				return (0);
-			}
 		}
 	}
 	free (buff);

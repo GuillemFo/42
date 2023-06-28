@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:10:04 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/27 18:07:36 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:52:38 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,9 @@ char	*ft_strjoin(char *s1, char *s2)
 		newstr[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (s2[j] != '\0')
-	{
+	j = -1;
+	while (s2[++j] != '\0')
 		newstr[i + j] = s2[j];
-		j++;
-	}
 	newstr[i + j] = '\0';
 	if (s1)
 		free (s1);
