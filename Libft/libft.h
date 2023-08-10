@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:54:03 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/07 12:49:14 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:47:05 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,16 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* printf */
+
+int		ft_printf(const char *str, ...);
+int		ft_string(char *s);
+int		ft_char(int s);
+int		ft_u(unsigned int s);
+int		ft_hex(unsigned int s);
+int		ft_hexcap(unsigned int s);
+int		ft_ptr(unsigned long s);
+int		ft_itoaprint(int n);
 
 #endif
