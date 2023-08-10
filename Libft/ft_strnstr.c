@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:54:06 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/15 14:01:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:01:50 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				return ((char *)&haystack[i]);
 		}
 		i++;
-	}	
+	}
 	return (NULL);
 }

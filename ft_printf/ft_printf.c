@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:12:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/06/15 12:32:01 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:03:13 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_printf(const char *str, ...)
 			return (-1);
 		count += test;
 		i++;
-	}	
+	}
 	va_end(argv);
 	return (count);
 }
