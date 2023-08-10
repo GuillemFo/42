@@ -6,13 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:43:24 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/05/28 20:01:44 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:25:37 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned char	ft_intchar(long int nb)
+static unsigned char	ft_intchar(long int nb)
 {
 	unsigned char	c;
 
@@ -20,7 +20,7 @@ unsigned char	ft_intchar(long int nb)
 	return (c);
 }
 
-long int	ft_countdigits(long int nb)
+static long int	ft_countdigits(long int nb)
 {
 	long int	i;
 
