@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/10 13:52:54 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/05/02 15:53:34 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/05/08 11:03:00 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
-
-
-
-
-#endif
+int	ft_isalnum(int val)
+{
+	if ((val >= '0' && val <= '9') || (val >= 'A' && val <= 'Z')
+		|| (val >= 'a' && val <= 'z'))
+		return (1);
+	else
+		return (0);
+}
