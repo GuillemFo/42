@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/16 16:24:08 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:29:03 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ int	ft_checkarg(char *argv)
 }
 
 long	ft_atol() ascii to long.
-
-
-
-
-
-
-
-
 
 
 
