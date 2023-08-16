@@ -6,13 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/16 16:29:03 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:26:33 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_checkarg(char *argv)
+int	ft_check_arg_is_num(char *argv)
 {
 	int	z;
 	int	i;
@@ -36,8 +36,8 @@ int	ft_checkarg(char *argv)
 	return (1);
 }
 
-long	ft_atol() ascii to long.
-
+/* NEED TESTER TO CHECK WITH LONG IF ITS OVER OR UNDER MAX AND MIN INTS AND BE ABLE TO RETURN A CODE TO SEE IF ITS WRONG*/
+/* THEN APPLY ATOI TO WORK WITH THE VALUES WITH THE PUSH_SWAP*/
 
 
 
@@ -47,20 +47,40 @@ int	main(int argc, char *argv[])
 	if (argc < 2) 
 		return (write(2, "ERROR\n", 6));
 	else
-		*split_result = ft_split(argv[1]);
-		/*IMPLEMENT SPLIT HERE AND WORK WITH THE RESULTANT VALUES / MATRIX OF SPLIT & COUNT ALL VALUES RESULTED TO KNOW HOW MANY TIMES ITER THE WHILE LOOP FOR FT_CHECKARG*/
-		while ()
+		if (argc == 2)
 		{
-			z = ft_checkarg(argv[x]);
+			*split_result = ft_split(argv[1]);
+/*IMPLEMENT SPLIT HERE AND WORK WITH THE RESULTANT VALUES / MATRIX OF SPLIT & COUNT ALL VALUES RESULTED TO KNOW HOW MANY TIMES ITER THE WHILE LOOP FOR FT_CHECKARG*/
+		while ( /*calcular el numero de splits para saber cuanto iterar*/)
+		{
+			z = ft_check_arg_is_num(argv[x]);
 			if (z == 1)
 			{
 				write(1, "all ok\n", 7);
-
+				/*añadir iterador para avanzar en el array*/
 			}
 			else
 			{
 				write(1, "error\n", 6);
+				/*frorzar salida p*/
+			}
+		}
 
+		else
+		{
+			while (argc > 2)
+			{
+				z = ft_check_arg_is_num(argv[x]);
+				if (z == 1)
+				{
+					write(1, "all ok\n", 7);
+					argc--;
+				}
+				else
+				{
+					write(1, "error\n", 6);
+					argc = 0;
+				}
 			}
 		}
 }
