@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/21 14:07:12 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/21 16:12:57 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,9 @@ int	ft_check_arg_is_num(char *argv)
 
 
 
+/* &argv[1] = to memory directon of arguments */
 
-
-///////////////////////////////////////
-
-int	test(int argc, char **argv)
+char	**ft_check_args(int argc, char **argv)
 {
 	int		x;
 	char	**matrix;
@@ -84,10 +82,7 @@ int	test(int argc, char **argv)
 		matrix = ft_split(argv[1], ' ');
 	}
 	else if (argc > 2)
-	{
-		matrix = argv;
-		x = 1;
-	}
+		matrix = &argv[1];
 	while (matrix[x])
 	{
 		z = ft_check_arg_is_num(matrix[x]);
@@ -100,7 +95,7 @@ int	test(int argc, char **argv)
 		}
 		x++;
 	}
-	return (0);
+	return (matrix);
 }
 
 
