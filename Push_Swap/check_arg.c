@@ -1,28 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/21 12:53:31 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/08/21 12:55:22 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	ft_check_arg_is_num(char *argv)
 {
-	char	**split_result;
-	int		x;
-	int		z;
+	int	z;
+	int	i;
 
-	if (argc < 2) 
-		return (write(2, "ERROR\n", 6));
-	else
+	z = 0;
+	i = 1;
+	if (argv[0] == '-' || argv[0] >= '0' && argv[0] <= '9')
 	{
-		if (argc == 2)
+		while (argv[i] != '\0')
+		{
+			z = ft_isdigit(argv[i]);
+			if (z == 0)
+				return (write(2, "ERROR FT_ISDIGIT REURNED FALSE\n", 32));
+			i++;
+		}
+	}
+	else
+		return (write(2, "ERROR\n", 6));
+	return (1);
+}
+
+long	ft_check_max_min(char *argv)
+{
+	long	result;
+	long	sign;
+	int		i;
+
+	result = 0;
+	i = 0;
+	sign = 1;
+	if (argv[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (argv[i])
+	{
+		result = result * 10 + argv[i] - '0';
+		i++;
+	}
+	result = sign * result;
+	if (result > INT_MAX || result < INT_MIN)
+		return (0);
+	return (1);
+}
+
+
+if (argc == 2)
 		{
 			split_result = ft_split(argv[1], ' ');
 			x = 0;
@@ -56,19 +94,3 @@ int	main(int argc, char *argv[])
 				}
 			}
 		}
-	}
-}
-
-/*#pasar char argv a long para comprobar que no sea mayor que int.
-(programar atol) luego filtrar a max int y min int dentro del 
-atol y si supera, imprimir error.
-----
-char comparar si es 10num o mas y filtrar max int y min int y luego 
-atoi para trabajar con los datos.
-
-
-APLICAR SPLIT ANTES DE NADA PARA PODER TRABAJAR CON VALORES 
-EN " " Y SOLOS A DEMAS DE CONSEGUIR UN VALOR PARA PODER ITERAR
- EL WHILE
-
-*/
