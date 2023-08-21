@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/17 12:24:18 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/21 13:34:08 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ typedef struct s_stack
 	struct s_stck	*next;
 }	t_stack;
 
-
-
-
+int	test(int argc, char **argv);
 
 #endif

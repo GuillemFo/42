@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC	= push_swap.c 
+SRC	= push_swap.c check_arg.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror -I./Include
 all: makelib $(NAME)
 
 $(NAME): $(OBJ)
-	cc $(CFLAGS) $(OBJ) -o $(NAME)
+	cc $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 
 makelib: 
 	$(MAKE) -C ./libft 
