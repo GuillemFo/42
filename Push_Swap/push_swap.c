@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/23 13:05:51 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:21:59 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,10 @@ int	main(int argc, char **argv)
 		matrix = ft_check_args(argc, argv);
 		a = fill_stack(matrix);
 		print_nodes(a);
+		ft_printf("\n");
+		/*next 2 lines are test*/
+		a = swap_a(a);
+		print_nodes(a);
 	}
+	return (0);
 }
