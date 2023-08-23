@@ -1,6 +1,7 @@
 NAME = push_swap
 
-SRC	= push_swap.c check_arg.c utils.c general_algorithm.c
+SRC	=	push_swap.c check_arg.c utils.c general_algorithm.c \
+		move_push.c move_rotate.c move_swap.c 
 
 OBJ = $(SRC:.c=.o)
 
