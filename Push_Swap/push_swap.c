@@ -6,11 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/21 16:04:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:05:51 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*missing filter for repeated values*/
 
 void	print_nodes(t_stack *stack)
 {
@@ -23,9 +25,9 @@ void	print_nodes(t_stack *stack)
 
 t_stack	*fill_stack(char **matrix)
 {
-	int	i;
+	int		i;
 	t_stack	*stack;
-	t_stack *stack2;
+	t_stack	*stack2;
 
 	i = 0;
 	stack = malloc (sizeof(t_stack));
@@ -64,17 +66,3 @@ int	main(int argc, char **argv)
 		print_nodes(a);
 	}
 }
-
-/*#pasar char argv a long para comprobar que no sea mayor que int.
-(programar atol) luego filtrar a max int y min int dentro del 
-atol y si supera, imprimir error.
-----
-char comparar si es 10num o mas y filtrar max int y min int y luego 
-atoi para trabajar con los datos.
-
-
-APLICAR SPLIT ANTES DE NADA PARA PODER TRABAJAR CON VALORES 
-EN " " Y SOLOS A DEMAS DE CONSEGUIR UN VALOR PARA PODER ITERAR
- EL WHILE
-
-*/

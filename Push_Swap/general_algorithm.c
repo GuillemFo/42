@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   general_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/23 12:03:57 by gforns-s         ###   ########.fr       */
+/*   Created: 2023/08/23 12:16:46 by gforns-s          #+#    #+#             */
+/*   Updated: 2023/08/23 13:06:50 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <limits.h>
-
-typedef struct s_stack
+	filter_nodes(t_stack *a, t_stack *b)
 {
-	int				content;
-	struct s_stack	*next;
-}	t_stack;
+	int	nodenum;
 
-char	**ft_check_args(int argc, char **argv);
-int		count_nodes(t_stack *stack);
+	nodenum = count_nodes(a);
 
-#endif
+	if (nodenum <= 3)
+	{
+
+	}
+	else if (nodenum <= 5)
+	{
+
+	}
+	else
+	{
+		
+	}
+
+}
