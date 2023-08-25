@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/25 11:19:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:00:05 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		print_nodes(b);
 		/*next 2 lines are test*/
 		ft_printf("--PA--\n");
-		general_push(&*a, &*b);
+		general_push(&*b, &*a);
 		ft_printf("----A----\n");
 		print_nodes(a);
 		ft_printf("----B-----\n");

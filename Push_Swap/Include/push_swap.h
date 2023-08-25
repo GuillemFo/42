@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/25 11:02:48 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:17:35 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**ft_check_args(int argc, char **argv);
 int		count_nodes(t_stack *stack);
 t_stack	*swap_a(t_stack *a);
 void	swap_ss(t_stack *a, t_stack *b);
-void	general_push(t_stack *a, t_stack *b);
+void	general_push(t_stack *stack1, t_stack *stack2);
 t_stack	*fill_stack(char **matrix);
 void	print_nodes(t_stack *stack);
 
