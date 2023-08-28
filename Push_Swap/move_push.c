@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:17:21 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 11:49:13 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:01:59 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	push_a(t_stack **b, t_stack **a)
 	general_push(a, b);
 	ft_printf("pa\n");
 }
+
+//Call function with &
 
 void	push_b(t_stack **b, t_stack **a)
 {
