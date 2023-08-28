@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 14:02:49 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:39:08 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ t_stack	*fill_stack(char **matrix)
 
 	i = 0;
 	stack = malloc (sizeof(t_stack));
+	//free malloc
 	stack2 = stack;
 	while (matrix[i])
 	{
 		stack->content = ft_atoi(matrix[i]);
+		
 		if (matrix[i + 1] == NULL)
 			stack->next = NULL;
 		else
@@ -62,4 +64,21 @@ t_stack	*fill_stack(char **matrix)
 		i++;
 	}
 	return (stack2);
+}
+
+
+
+int	repited_value_check(t_stack *stack)  //stack->next->content ??
+{
+	int		content_cpy;
+	t_stack	*tmp;
+
+	tmp = stack;
+	content_cpy = stack->content;
+	while (stack->next != NULL)
+	{
+		stack = stack->next;
+		if (stack->content == content_cpy)
+			return (ft_printf("Repited value\n"));
+	}
 }
