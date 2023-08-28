@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/25 13:17:35 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 08:10:42 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct s_node
+{
+	int				content;
+	struct s_node	*next;
+	struct s_node	*prev;
+	struct s_node	*first;
+	struct s_node	*last;
+}	t_node;
+
 
 char	**ft_check_args(int argc, char **argv);
 int		count_nodes(t_stack *stack);

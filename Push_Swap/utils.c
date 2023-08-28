@@ -6,11 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/25 09:00:33 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 08:15:11 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//CAMBIAR TODO A NODES
 
 void	print_nodes(t_stack *stack)
 {
@@ -33,6 +35,11 @@ int	count_nodes(t_stack *stack)
 	}
 	return (i);
 }
+
+//FILEAR X NODOS, CREAR UN NODO X CADA VALOR.
+//LINKEAR CADA NODO A PREV y NEXT
+//SI ES EL PRIMERO QUE SE GUARDE COMO FIRST Y SI ES EL ULTIMO QUE SE GUARDE COMO LAST
+
 t_stack	*fill_stack(char **matrix)
 {
 	int		i;
