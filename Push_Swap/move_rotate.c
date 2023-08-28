@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:16:56 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 15:52:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:07:40 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*rotate_b(t_stack *b)
 
 void	rotate_rotate(t_stack **a, t_stack **b)
 {
-	general_rotate(*a);
-	general_rotate(*b);
+	*a = general_rotate(*a);
+	*b = general_rotate(*b);
 	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 15:50:46 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:08:52 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	main(int argc, char **argv)
 		print_nodes(a);
 		ft_printf("---Print B----\n");
 		print_nodes(b);
+		ft_printf("\n");
+		ft_printf("\n");
 		/*next 2 lines are test*/
 		ft_printf("--PB--\n");
 		push_b(&b, &a);
@@ -90,6 +92,15 @@ int	main(int argc, char **argv)
 		ft_printf("\n");
 		ft_printf("\n");
 				/*next 2 lines are test*/
+		ft_printf("--RA--\n");
+		a = rotate_a(a);
+		ft_printf("----A----\n");
+		print_nodes(a);
+		ft_printf("----B-----\n");
+		print_nodes(b);
+		ft_printf("\n");
+		ft_printf("\n");
+						/*next 2 lines are test*/
 		ft_printf("--RR--\n");
 		rotate_rotate(&a, &b);
 		ft_printf("----A----\n");
