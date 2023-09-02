@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/02 12:18:24 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/02 12:26:03 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 	{
 		matrix = ft_check_args(argc, argv);
 		a = fill_stack(matrix);
+		b = fill_stack(matrix);
 		z = repited_value_check(a);
 		ft_printf("---Print A---\n");
 		print_nodes(a);
