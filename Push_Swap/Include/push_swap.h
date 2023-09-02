@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 15:59:05 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/02 10:48:10 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_stack	*rotate_b(t_stack *b);
 void	rotate_rotate(t_stack **a, t_stack **b);
 t_stack	*fill_stack(char **matrix);
 void	print_nodes(t_stack *stack);
+int		repited_value_check(t_stack *stack);
 
 
 
