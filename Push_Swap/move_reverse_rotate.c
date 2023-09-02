@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:33:08 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/02 12:32:12 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/02 13:15:01 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,20 @@
 t_stack	*general_reverse_rotate(t_stack *stack)
 {
 	t_stack	*top;
-	t_stack	*bottom;
-	t_stack	*tmp;
+	t_stack	*newtop;
+	t_stack	*last;
 
 	top = stack;
-	if (stack->next->next == NULL)
+	while (stack->next)
 	{
-		top = stack;
+		if (stack->next == NULL)
+			stack->next = top;
+		if (stack->next->next)
+			if (stack->next->next == top)
+				stack->next = NULL;
 		stack = stack->next;
-		bottom = stack;
-		bottom->next = top;
-		stack->next = NULL;
 	}
-	else
-	{
-		while (stack->next->next && stack->next->next != NULL)
-			stack = stack->next;
-		tmp = stack->next;
-		stack->next = NULL;
-		bottom = tmp;
-
-		bottom->next = top;
-	}
-	return (bottom);
+	return (newtop);
 }
 
 t_stack	*reverse_rotate_a(t_stack *a)
